@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://github.com/Babakbigdeli/BookmarkApp/issues"
   },
-  "homepage": "https://github.com/Babakbigdeli/BookmarkApp#readme"
+  "homepage": "https://github.com/Babakbigdeli/BookmarkApp#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3"
+  }
 }
