@@ -1,10 +1,14 @@
-
+import React from 'react';
+// import React from './';
+import LoginButton from './components/LoginButton'
+import LogoutButton from './components/LogoutButton'
 
 function App() {
   return (
-    <div className="App">
-      <h1>React App</h1>
-    </div>
+<>
+<LoginButton/>
+<LogoutButton/>
+</>
   );
 }
 
