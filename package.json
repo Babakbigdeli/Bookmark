@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Babakbigdeli/BookmarkApp#readme",
   "dependencies": {
-    "bcryptjs": "^2.4.3"
+    "bcryptjs": "^2.4.3",
+    "react-json-pretty": "^2.2.0"
   }
 }
