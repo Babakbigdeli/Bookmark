@@ -16,7 +16,7 @@ if(process.env.NODE_ENV === "production"){
 }
 
 //Connect to Mongo DB 
-mongoose.connect("mongodb://localhost:27017/googlebooks", {
+mongoose.connect("mongodb://localhost:27017/bookmark", {
     useCreateIndex: true,useNewUrlParser: true, useUnifiedTopology:true
 })
 
