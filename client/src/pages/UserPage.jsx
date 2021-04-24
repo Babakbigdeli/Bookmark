@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
-//import LogoutButton from "../components/LogoutButton";
+
 import {
   Segment,
   Grid,
   Container,
   Accordion,
   Icon,
+  Header,
 } from "semantic-ui-react";
 
 export default class UserPage extends Component {
@@ -30,6 +31,9 @@ export default class UserPage extends Component {
           <Grid columns={3} relaxed="very">
             <Grid.Column>
               <Container>
+                <Header as="h4" color="red">
+                  Currently Reading
+                </Header>
                 <Accordion fluid styled>
                   <Accordion.Title
                     active={activeIndex === 0}
@@ -91,6 +95,9 @@ export default class UserPage extends Component {
             </Grid.Column>
             <Grid.Column>
               <Container>
+                <Header as="h4" color="olive">
+                  History
+                </Header>
                 <Accordion fluid styled>
                   <Accordion.Title
                     active={activeIndex === 0}
@@ -152,6 +159,9 @@ export default class UserPage extends Component {
             </Grid.Column>
             <Grid.Column>
               <Container>
+                <Header as="h4" color="purple">
+                  Want to Read
+                </Header>
                 <Accordion fluid styled>
                   <Accordion.Title
                     active={activeIndex === 0}
@@ -212,7 +222,6 @@ export default class UserPage extends Component {
               </Container>
             </Grid.Column>
           </Grid>
-
         </Segment>
       </>
     );

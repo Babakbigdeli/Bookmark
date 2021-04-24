@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { Menu, Segment } from 'semantic-ui-react';
 import Login from './LoginButton';
 
+
 export default class Navbar extends Component {
   //state = { activeItem: 'home' }
 
@@ -24,15 +25,12 @@ export default class Navbar extends Component {
             //onClick={this.handleItemClick}
           />
           <Menu.Item
-            name='messages'
+            name='user page'
             //active={activeItem === 'user'}
            // onClick={this.handleItemClick}
           />
-          <Menu.Menu position='right'>
-            <Menu.Item
-              name='login'
-              onClick={Login}
-            />
+          <Menu.Menu position='right centre'>
+            <Login/>
           </Menu.Menu>
         </Menu>
 
