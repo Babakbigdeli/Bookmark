@@ -1,8 +1,9 @@
 import React from "react";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "../src/pages/Home";
+import UserPage from "../src/pages/UserPage";
 
 import { useAuth0 } from "@auth0/auth0-react";
-
-import Wrapper from "./components/Wrapper";
 
 function App() {
   const { isLoading } = useAuth0();
@@ -11,8 +12,13 @@ function App() {
 
   return (
     <div className="App">
-    <Wrapper>
-    </Wrapper>
+      <Router>
+        <div>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/userpage" component={UserPage} />
+          <Route exact path="/auth0" component={useAuth0} />
+        </div>
+      </Router>
     </div>
   );
 }
