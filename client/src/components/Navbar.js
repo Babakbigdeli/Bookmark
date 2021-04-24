@@ -5,12 +5,12 @@ import { Menu, Segment } from 'semantic-ui-react';
 import Login from './LoginButton';
 
 export default class Navbar extends Component {
-  state = { activeItem: 'home' }
+  //state = { activeItem: 'home' }
 
-  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+  //handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
   render() {
-    const { activeItem } = this.state
+    //const { activeItem } = this.state
 
     return (
       <div>
@@ -20,13 +20,13 @@ export default class Navbar extends Component {
           </ Segment >
           <Menu.Item
             name='home'
-            active={activeItem === 'home'}
-            onClick={this.handleItemClick}
+            //active={activeItem === 'home'}
+            //onClick={this.handleItemClick}
           />
           <Menu.Item
             name='messages'
-            active={activeItem === 'user'}
-            onClick={this.handleItemClick}
+            //active={activeItem === 'user'}
+           // onClick={this.handleItemClick}
           />
           <Menu.Menu position='right'>
             <Menu.Item
