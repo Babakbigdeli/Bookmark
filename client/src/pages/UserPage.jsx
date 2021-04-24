@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
+import ActivityFeed from "../components/ActivityFeed";
 
 import {
   Segment,
@@ -8,6 +9,7 @@ import {
   Accordion,
   Icon,
   Header,
+  Feed
 } from "semantic-ui-react";
 
 export default class UserPage extends Component {
@@ -28,7 +30,7 @@ export default class UserPage extends Component {
       <>
         <Navbar />
         <Segment>
-          <Grid columns={3} relaxed="very">
+          <Grid columns={4} relaxed="very">
             <Grid.Column>
               <Container>
                 <Header as="h4" color="red">
@@ -220,6 +222,9 @@ export default class UserPage extends Component {
                   </Accordion.Content>
                 </Accordion>
               </Container>
+            </Grid.Column>
+            <Grid.Column>
+              <ActivityFeed/>
             </Grid.Column>
           </Grid>
         </Segment>
