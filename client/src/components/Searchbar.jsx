@@ -1,7 +1,7 @@
 import _ from 'lodash';
 //import faker from 'faker';
 import React from 'react';
-import { Search, Grid, Header, Segment } from 'semantic-ui-react';
+import { Search, Grid, } from 'semantic-ui-react';
 
 // const source = _.times(5, () => ({
 //   title: faker.company.companyName(),
@@ -76,19 +76,6 @@ function Searchbar() {
         />
       </Grid.Column>
 
-      <Grid.Column width={10}>
-        <Segment>
-          <Header>State</Header>
-          <pre style={{ overflowX: 'auto' }}>
-            {JSON.stringify({ loading, results, value }, null, 2)}
-          </pre>
-          <Header>Options</Header>
-          <pre style={{ overflowX: 'auto' }}>
-            {JSON.stringify( null, 2)}
-            
-          </pre>
-        </Segment>
-      </Grid.Column>
     </Grid>
   )
 }

@@ -1,8 +1,5 @@
 import React, { Component } from "react";
 import Navbar from "../components/Navbar";
-import ListButton from "../components/ListButton";
-import LoginButton from "../components/LoginButton";
-import LogoutButton from "../components/LogoutButton";
 import Searchbar from "../components/Searchbar";
 import SearchResultCard from "../components/SearchResultCard";
 import NewsFeed from "../components/NewsFeed";
@@ -17,9 +14,6 @@ class Home extends Component {
     return (
       <div className="home">
         <Navbar />
-        <ListButton />
-        <LoginButton />
-        <LogoutButton />
         <Profile />
         <Searchbar />
         <SearchResultCard />
