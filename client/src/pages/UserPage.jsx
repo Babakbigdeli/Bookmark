@@ -9,7 +9,7 @@ import {
   Accordion,
   Icon,
   Header,
-  Feed
+  //Feed
 } from "semantic-ui-react";
 
 export default class UserPage extends Component {
