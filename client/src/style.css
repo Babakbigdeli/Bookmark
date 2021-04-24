@@ -1,0 +1,88 @@
+.navbar {
+  position: absolute;
+  width: 1440px;
+  height: 115px;
+  left: 0px;
+  top: 0px;
+  background: rgb(0, 0, 102);
+}
+
+.searchbar {
+  position: absolute;
+  width: 537px;
+  height: 72px;
+  left: 23px;
+  top: 166px;
+  background: rgb(0, 0, 102);
+}
+
+.listButton {
+  position: absolute;
+  width: 190px;
+  height: 41px;
+  left: 924px;
+  top: 37px;
+  background: #fcddec;
+}
+
+.profile {
+  position: absolute;
+  width: 97px;
+  height: 40px;
+  left: 1248px;
+  top: 38px;
+  background: #fff0f0;
+}
+
+.loginButton {
+  position: absolute;
+  width: 97px;
+  height: 40px;
+  left: 1248px;
+  top: 38px;
+
+  background: #fff0f0;
+}
+
+.newsFeed {
+  position: absolute;
+  width: 421px;
+  height: 729px;
+  left: 1019px;
+  top: 164px;
+  background: rgb(0, 0, 102);
+}
+
+.searchResultCard {
+  position: absolute;
+  width: 953px;
+  height: 607px;
+  left: 23px;
+  top: 286px;
+  background: rgb(0, 0, 102);
+}
+
+.banner {
+  position: absolute;
+  width: 1417px;
+  height: 58px;
+  left: 23px;
+  top: 925px;
+  background: rgb(0, 0, 102);
+}
+
+.footer {
+  position: absolute;
+  width: 579px;
+  height: 32px;
+  left: 474px;
+  top: 992px;
+  background: rgb(0, 0, 102);
+}
+
+.wrapper {
+  position: relative;
+  width: 1440px;
+  height: 1024px;
+  background: #ffffff;
+}
