@@ -1,8 +1,8 @@
 import React from "react";
-import LoginButton from "./components/LoginButton";
-import LogoutButton from "./components/LogoutButton";
-import Profile from "./components/Profile";
+
 import { useAuth0 } from "@auth0/auth0-react";
+
+import Wrapper from "./components/Wrapper";
 
 function App() {
   const { isLoading } = useAuth0();
@@ -10,11 +10,10 @@ function App() {
   if (isLoading) return <div>Loading...</div>;
 
   return (
-    <>
-      <LoginButton />
-      <LogoutButton />
-      <Profile />
-    </>
+    <div className="App">
+    <Wrapper>
+    </Wrapper>
+    </div>
   );
 }
 
