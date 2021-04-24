@@ -1,21 +1,44 @@
-import React from "react";
-import {Navbar, Nav} from "react-bootstrap";
 import {} from 'react-router-dom';
 import { RiBookMarkLine } from 'react-icons/ri';
+import React, { Component } from 'react';
+import { Menu, Segment } from 'semantic-ui-react';
+import Login from './LoginButton';
 
-function NavBar() {
-  return (
-    <>
-    <Navbar bg="dark" variant="dark">
-    <Navbar.Brand href="#home"> <RiBookMarkLine/> Navbar</Navbar.Brand>
-    <Nav className="mr-auto">
-      <Nav href="">Home</Nav>
-      <Nav href="">Features</Nav>
-      <Nav href="">Pricing</Nav>
-    </Nav>
-    </Navbar>
-    </>
-  )
+export default class Navbar extends Component {
+  state = { activeItem: 'home' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
+  render() {
+    const { activeItem } = this.state
+
+    return (
+      <div>
+        <Menu pointing secondary>
+          < Segment position='down'>
+          <RiBookMarkLine/>
+          </ Segment >
+          <Menu.Item
+            name='home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Item
+            name='messages'
+            active={activeItem === 'user'}
+            onClick={this.handleItemClick}
+          />
+          <Menu.Menu position='right'>
+            <Menu.Item
+              name='login'
+              onClick={Login}
+            />
+          </Menu.Menu>
+        </Menu>
+
+       
+      </div>
+    )
+  }
 }
 
-export default NavBar;
