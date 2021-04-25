@@ -22,15 +22,10 @@
     "bootstrap": "^4.6.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.5",
-<<<<<<< HEAD
-<<<<<<< Updated upstream
-=======
-    "react-icons": "^4.2.0",
->>>>>>> Stashed changes
-=======
+
     "react-bootstrap": "^1.5.2",
     "react-icons": "^4.2.0",
->>>>>>> 5d6fd83d945ea9184ffd4f33e7dd654a8024c04f
+
     "react-json-pretty": "^2.2.0"
   }
 }
