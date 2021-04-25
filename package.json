@@ -21,6 +21,10 @@
     "bcryptjs": "^2.4.3",
     "express": "^4.17.1",
     "mongoose": "^5.12.5",
+<<<<<<< Updated upstream
+=======
+    "react-icons": "^4.2.0",
+>>>>>>> Stashed changes
     "react-json-pretty": "^2.2.0"
   }
 }
