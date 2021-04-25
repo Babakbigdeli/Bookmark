@@ -22,8 +22,10 @@
     "bootstrap": "^4.6.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.5",
+
     "react-bootstrap": "^1.5.2",
     "react-icons": "^4.2.0",
+
     "react-json-pretty": "^2.2.0"
   }
 }
