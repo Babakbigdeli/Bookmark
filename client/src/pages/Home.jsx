@@ -1,16 +1,22 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Searchbar from "../components/Searchbar";
 import SearchResultCard from "../components/SearchResultCard";
 import NewsFeed from "../components/NewsFeed";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
-import {Grid, Column} from "semantic-ui-react";
+import {Grid} from "semantic-ui-react";
+import {useAuth0} from '@auth0/auth0-react'
 
-class Home extends Component {
-  state = {};
-  render() {
+function Home()  {
+  const [subKey, setSubKey] = useState('');
+  const {user} = useAuth0();
+  useEffect(() => {
+    setSubKey(user.sub)}, [user.sub]
+  )
+  
     return (
+      console.log(user),
       <>
         <Navbar />
         <Grid divided="vertically">
@@ -34,8 +40,6 @@ class Home extends Component {
       </>
     );
   }
-}
 
-<Footer />;
 
 export default Home;
