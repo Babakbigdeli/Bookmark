@@ -9,7 +9,7 @@ import NewsFeed from "../components/NewsFeed";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
 import Profile from "../components/Profile";
-import "../style.css";
+
 
 class Home extends Component {
   state = {};
