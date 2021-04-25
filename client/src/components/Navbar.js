@@ -17,6 +17,7 @@ export default class Navbar extends Component {
       <div>
         <Menu pointing secondary>
           < Segment position='down'>
+            Bookmark
           <RiBookMarkLine/>
           </ Segment >
           <Menu.Item
