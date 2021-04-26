@@ -22,7 +22,7 @@ function Home() {
   const getBooks = () => {
     API.findBooks(q).then((response) => {
       console.log(response)
-      setBooks(response.data.docs);
+      setBooks(response.data);
     });
   };
 
@@ -35,7 +35,10 @@ function Home() {
     setQ(e.target.value);
   };
 
-
+const saveBookToDB = (event, key) => {
+  console.log(key)
+  console.log(event)
+}
 
 
   return (
@@ -46,7 +49,28 @@ function Home() {
       </div>
       <div>
         <ul>
-       
+       {books.length ? (
+         books.map(book => (
+           <SearchResultCard
+           key= {book.key}
+            id= {book.cover_i}
+            title={ book.title}
+            /*
+            authors= {book.author_name.join(", ")}
+            first_sentence= {book.first_sentence}
+            link= {book.cover_edition_key}
+            number_of_pages= {book.publish_year}
+            language= {book.language}
+            */
+           Button={() => (
+             <button 
+            value="history"
+             onClick={(event) => saveBookToDB(event, book.key)}>Save Button</button>
+           )} />
+         ))
+       ) : (
+         <p>No books to display. Are you sure you have searched?</p>
+       )}
         </ul>
       </div>
     </div>
