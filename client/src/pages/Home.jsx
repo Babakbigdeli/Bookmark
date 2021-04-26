@@ -5,18 +5,57 @@ import SearchResultCard from "../components/SearchResultCard";
 import NewsFeed from "../components/NewsFeed";
 import Banner from "../components/Banner";
 import Footer from "../components/Footer";
-import {Grid} from "semantic-ui-react";
-import {useAuth0} from '@auth0/auth0-react'
+import { Grid } from "semantic-ui-react";
+import { useAuth0 } from "@auth0/auth0-react";
+import API from "../utils/API";
 
-function Home()  {
-  const [subKey, setSubKey] = useState('');
-  const {user} = useAuth0();
+function Home() {
+  const [subKey, setSubKey] = useState("");
+  const [books, setBooks] = useState([]);
+  const [q, setQ] = useState("");
+/*
+  const { user } = useAuth0();
   useEffect(() => {
-    setSubKey(user.sub)}, [user.sub]
-  )
-  
-    return (
-      console.log(user),
+    setSubKey(user.sub);
+  }, [user.sub]);
+*/
+  const getBooks = () => {
+    API.findBooks(q).then((response) => {
+      console.log(response)
+      setBooks(response.data.docs);
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    getBooks();
+  };
+
+  const handleChange = (e) => {
+    setQ(e.target.value);
+  };
+
+
+
+
+  return (
+    <div>
+      <div>
+        <Navbar />
+       <Searchbar q={q} handleChange={handleChange} handleSubmit={handleSubmit} />
+      </div>
+      <div>
+        <ul>
+       
+        </ul>
+      </div>
+    </div>
+  );
+}
+
+/*
+    //return (
+     // console.log(user),
       <>
         <Navbar />
         <Grid divided="vertically">
@@ -36,10 +75,11 @@ function Home()  {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <Footer />
+        <Footer/>
       </>
     );
+  
   }
 
-
+*/
 export default Home;
