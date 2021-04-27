@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Card, Image } from "semantic-ui-react";
 
-const SearchResultCard = () => (
+const SearchResultCard = ({key, cover_id, title, Button}) => (
   <Card.Group>
     <Card>
       <Card.Content>
@@ -10,15 +10,13 @@ const SearchResultCard = () => (
           size="mini"
           //src='/images/avatar/large/steve.jpg'
         />
-        <Card.Header>search result 1</Card.Header>
+        <Card.Header>{title}</Card.Header>
         <Card.Meta>author</Card.Meta>
         <Card.Description>book info</Card.Description>
       </Card.Content>
       <Card.Content extra>
         <div className="ui two buttons">
-          <Button basic color="green">
-            Add to list
-          </Button>
+          <Button />
         </div>
       </Card.Content>
     </Card>

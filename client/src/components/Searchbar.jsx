@@ -1,11 +1,14 @@
 import React from "react";
-import { Search, Grid } from "semantic-ui-react";
+import {  Grid } from "semantic-ui-react";
 
-function Searchbar() {
+function Searchbar({q, handleChange, handleSubmit}) {
   return (
     <Grid>
       <Grid.Column width={6}>
-        <Search />
+      <form>
+          <input type="text" value={q} onChange={handleChange} />
+          <button onClick={handleSubmit} type="submit">Search</button>
+        </form>
       </Grid.Column>
     </Grid>
   );

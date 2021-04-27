@@ -1,4 +1,4 @@
-const dbBooks = require("../models/bookSchema");
+const dbBooks = require("../models/book");
 
 module.exports = {
     findAll: function(req, res) {

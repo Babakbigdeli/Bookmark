@@ -8,3 +8,5 @@ router
   .get(BooksController.findById)
   .put(BooksController.update)
   .delete(BooksController.remove);
+
+  module.exports = router;
