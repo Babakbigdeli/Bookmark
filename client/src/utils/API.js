@@ -4,7 +4,7 @@ import axios from "axios"
 export default {
     findBooks: function(q) {
         console.log("Called findBooks")
-        return axios.get("/openlibrary/", {params: {q: "title:" + q} } 
+        return axios.get("/googlebooks/", {params: {q: "title:" + q} } 
         );
     
 },
