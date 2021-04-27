@@ -1,29 +1,25 @@
 const axios = require("axios");
-
 module.exports = {
   getGoogleBooks: function (req, res) {
     console.log("requesting books from google books");
-    const { query } = req;
-
+    //const { query } = req;
+    const { query: params } = req;
     axios
-      .get("https://www.googleapis.com/books/v1/volumes?q=", {
-        params: query,
+      .get("https://www.googleapis.com/books/v1/volumes", {
+        params,
       })
-      .then((response) =>
-        response.data.docs.filter(
-          (book) =>
-          book.volumeInfo.title &&
-          book.volumeInfo.pageCount &&
-          book.volumeInfo.authors &&
-          book.volumeInfo.description &&
-          book.volumeInfo.imageLinks &&
-          book.volumeInfo.language &&
-          book.volumeInfo.imageLinks.thumbnail
-            
+      .then((results) =>
+        results.data.items.filter(
+          (result) =>
+            result.volumeInfo.title &&
+            result.volumeInfo.infoLink &&
+            result.volumeInfo.authors &&
+            result.volumeInfo.description &&
+            result.volumeInfo.imageLinks &&
+            result.volumeInfo.imageLinks.thumbnail
         )
       )
-      .then((filteredBooks) => res.json(filteredBooks))
-      .catch((err) => res.status(422).json(err));
+
+      .then((results) => res.json(results));
   },
 };
-
