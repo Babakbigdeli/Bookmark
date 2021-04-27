@@ -8,6 +8,7 @@ import Footer from "../components/Footer";
 import { Grid } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
+import "./style/Home.css";
 
 function Home() {
   const [subKey, setSubKey] = useState("");
@@ -35,30 +36,26 @@ function Home() {
     setQ(e.target.value);
   };
 
-  const saveBookToDB = (status, key) => {
-    console.log(key);
-    console.log(status);
-    const book = books.find(book => book.key === key); 
+  // const saveBookToDB = (status, key) => {
+  //   console.log(key);
+  //   console.log(status);
+  //   const book = books.find((book) => book.key === key);
 
-    API.saveBook({
-      title: book.title,
-      subkey: subKey,
-      status: status,
-      authors: book.authors, 
-
-    }).then(() => getBooks());
-  };
+  // API.saveBook({
+  //   title: book.title,
+  //   subkey: subKey,
+  //   status: status,
+  //   authors: book.authors,
+  // }).then(() => getBooks());
 
   return (
-    <div>
-      <div>
-        <Navbar />
-        <Searchbar
-          q={q}
-          handleChange={handleChange}
-          handleSubmit={handleSubmit}
-        />
-      </div>
+    <div className="home">
+      <Navbar />
+      <Searchbar
+        q={q}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
       <div>
         <ul>
           {books.length ? (
@@ -74,30 +71,34 @@ function Home() {
             number_of_pages= {book.publish_year}
             language= {book.language}
             */
-                PastButton={() => (
-                  <button
-                    value="past"
-                    onClick={(event) => saveBookToDB(event.target.value, book.key)}
-                  >
-                    Save Button
-                  </button>
-                )}
-                PresentButton={() => (
-                  <button
-                    value="present"
-                    onClick={(event) => saveBookToDB(event.target.value, book.key)}
-                  >
-                    Save Button
-                  </button>
-                )}
-                FutureButton={() => (
-                  <button
-                    value="future"
-                    onClick={(event) => saveBookToDB(event.target.value, book.key)}
-                  >
-                    Save Button
-                  </button>
-                )}
+                // PastButton={() => (
+                //   <button
+                //     value="past"
+                //     onClick={(event) => saveBookToDB(event, book.key)}
+                //   >
+                //     Save Button
+                //   </button>
+                // )}
+                // PresentButton={() => (
+                //   <button
+                //     value="present"
+                //     onClick={(event) =>
+                //       saveBookToDB(event.target.value, book.key)
+                //     }
+                //   >
+                //     Save Button
+                //   </button>
+                // )}
+                // FutureButton={() => (
+                //   <button
+                //     value="future"
+                //     onClick={(event) =>
+                //       saveBookToDB(event.target.value, book.key)
+                //     }
+                //   >
+                //     Save Button
+                //   </button>
+                // )}
               />
             ))
           ) : (
@@ -138,4 +139,5 @@ function Home() {
   }
 
 */
+
 export default Home;
