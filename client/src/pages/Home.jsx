@@ -13,7 +13,7 @@ function Home() {
   const [subKey, setSubKey] = useState("");
   const [books, setBooks] = useState([]);
   const [q, setQ] = useState("");
-/*
+  /*
   const { user } = useAuth0();
   useEffect(() => {
     setSubKey(user.sub);
@@ -21,7 +21,7 @@ function Home() {
 */
   const getBooks = () => {
     API.findBooks(q).then((response) => {
-      console.log(response)
+      console.log(response);
       setBooks(response.data);
     });
   };
@@ -35,42 +35,74 @@ function Home() {
     setQ(e.target.value);
   };
 
-const saveBookToDB = (event, key) => {
-  console.log(key)
-  console.log(event)
-}
+  const saveBookToDB = (status, key) => {
+    console.log(key);
+    console.log(status);
+    const book = books.find(book => book.key === key); 
 
+    API.saveBook({
+      title: book.title,
+      subkey: subKey,
+      status: status,
+      authors: book.authors, 
+
+    }).then(() => getBooks());
+  };
 
   return (
     <div>
       <div>
         <Navbar />
-       <Searchbar q={q} handleChange={handleChange} handleSubmit={handleSubmit} />
+        <Searchbar
+          q={q}
+          handleChange={handleChange}
+          handleSubmit={handleSubmit}
+        />
       </div>
       <div>
         <ul>
-       {books.length ? (
-         books.map(book => (
-           <SearchResultCard
-           key= {book.key}
-            id= {book.cover_i}
-            title={ book.title}
-            /*
+          {books.length ? (
+            books.map((book) => (
+              <SearchResultCard
+                key={book.key}
+                id={book.cover_i}
+                title={book.title}
+                /*
             authors= {book.author_name.join(", ")}
             first_sentence= {book.first_sentence}
             link= {book.cover_edition_key}
             number_of_pages= {book.publish_year}
             language= {book.language}
             */
-           Button={() => (
-             <button 
-            value="history"
-             onClick={(event) => saveBookToDB(event, book.key)}>Save Button</button>
-           )} />
-         ))
-       ) : (
-         <p>No books to display. Are you sure you have searched?</p>
-       )}
+                PastButton={() => (
+                  <button
+                    value="past"
+                    onClick={(event) => saveBookToDB(event.target.value, book.key)}
+                  >
+                    Save Button
+                  </button>
+                )}
+                PresentButton={() => (
+                  <button
+                    value="present"
+                    onClick={(event) => saveBookToDB(event.target.value, book.key)}
+                  >
+                    Save Button
+                  </button>
+                )}
+                FutureButton={() => (
+                  <button
+                    value="future"
+                    onClick={(event) => saveBookToDB(event.target.value, book.key)}
+                  >
+                    Save Button
+                  </button>
+                )}
+              />
+            ))
+          ) : (
+            <p>No books to display. Are you sure you have searched?</p>
+          )}
         </ul>
       </div>
     </div>

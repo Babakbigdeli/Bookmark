@@ -7,5 +7,8 @@ export default {
         return axios.get("/openlibrary/", {params: {q: "title:" + q} } 
         );
     
+},
+saveBook: function(bookObject){
+    axios.post("", bookObject)
 }
 }
