@@ -2,9 +2,12 @@ const dbBooks = require("../models/book");
 
 module.exports = {
     findAll: function(req, res) {
+      const sub = req.params.sub;
       dbBooks.Book
         .find(req.query)
-        .sort({ date: -1 })
+        .then((books) => books.filter(book => {
+          book.sub === sub
+        }))
         .then(dbModel => res.json(dbModel))
         .catch(err => res.status(422).json(err));
     },
@@ -15,7 +18,8 @@ module.exports = {
           .catch(err => res.status(422).json(err));
       },
       create: function(req, res) {
-        dbBooks.Book
+        console.log(req.body)
+        dbBooks
           .create(req.body)
           .then(dbModel => res.json(dbModel))
           .catch(err => res.status(422).json(err));

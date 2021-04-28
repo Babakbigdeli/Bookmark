@@ -1,8 +1,8 @@
 import React from "react";
 import { Button, Card, Image } from "semantic-ui-react";
 
-const SearchResultCard = ({ key, cover_id, title }) => (
-  <div className="searchResultCard">
+const SearchResultCard = ({ key, cover_id, title, PastButton, PresentButton, FutureButton}) => (
+ // <div className="searchResultCard">
     <Card.Group>
       <Card>
         <Card.Content>
@@ -16,11 +16,11 @@ const SearchResultCard = ({ key, cover_id, title }) => (
           <Card.Description>book info</Card.Description>
         </Card.Content>
         <Card.Content extra>
-          {/* <Button /> <Button /> <Button /> */}
+           <PastButton /> <PresentButton /> <FutureButton /> 
         </Card.Content>
       </Card>
     </Card.Group>
-  </div>
+  //</div>
 );
 
 export default SearchResultCard;
