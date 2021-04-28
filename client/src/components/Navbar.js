@@ -2,8 +2,8 @@ import {} from "react-router-dom";
 import { RiBookMarkLine } from "react-icons/ri";
 import React from "react";
 import { Menu, Segment } from "semantic-ui-react";
-import Login from "./LoginButton";
-//import Logout from "./LogoutButton";
+import LoginButton from "./LoginButton";
+import LogoutButton from "./LogoutButton";
 
 
 function Navbar() {
@@ -32,7 +32,8 @@ function Navbar() {
         />
 
         <Menu.Menu position='right'>
-          <Login/>
+          <LoginButton/>
+          <LogoutButton/>
         </Menu.Menu>
       </Menu>
     
