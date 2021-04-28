@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import { Grid } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
-import "./style/Home.css";
+
 
 function Home() {
   const [subKey, setSubKey] = useState("");

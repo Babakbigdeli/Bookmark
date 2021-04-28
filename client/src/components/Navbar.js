@@ -1,9 +1,10 @@
 import {} from "react-router-dom";
 import { RiBookMarkLine } from "react-icons/ri";
-import React, { Component } from "react";
+import React from "react";
 import { Menu, Segment } from "semantic-ui-react";
 import Login from "./LoginButton";
-import Logout from "./LogoutButton";
+//import Logout from "./LogoutButton";
+
 
 function Navbar() {
   //state = { activeItem: 'home' }
@@ -13,7 +14,7 @@ function Navbar() {
   //const { activeItem } = this.state
 
   return (
-    <div>
+    
       <Menu pointing secondary>
         <Segment position="down">
           Bookmark
@@ -30,9 +31,11 @@ function Navbar() {
           // onClick={this.handleItemClick}
         />
 
-        <Menu.Item name="login" onClick={Login} />
+        <Menu.Menu position='right'>
+          <Login/>
+        </Menu.Menu>
       </Menu>
-    </div>
+    
   );
 }
 
