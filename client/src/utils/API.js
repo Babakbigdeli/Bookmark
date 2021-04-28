@@ -9,6 +9,6 @@ export default {
     
 },
 saveBook: function(bookObject){
-    axios.post("", bookObject)
+    axios.post("/books/", bookObject)
 }
 }

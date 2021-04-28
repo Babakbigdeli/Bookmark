@@ -1,43 +1,39 @@
-import {} from 'react-router-dom';
-import { RiBookMarkLine } from 'react-icons/ri';
-import React, { Component } from 'react';
-import { Menu, Segment } from 'semantic-ui-react';
-import Login from './LoginButton';
+import {} from "react-router-dom";
+import { RiBookMarkLine } from "react-icons/ri";
+import React, { Component } from "react";
+import { Menu, Segment } from "semantic-ui-react";
+import Login from "./LoginButton";
+import Logout from "./LogoutButton";
 
-
-export default class Navbar extends Component {
+function Navbar() {
   //state = { activeItem: 'home' }
 
   //handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
-  render() {
-    //const { activeItem } = this.state
+  //const { activeItem } = this.state
 
-    return (
-      <div>
-        <Menu pointing secondary>
-          < Segment position='down'>
-            Bookmark
-          <RiBookMarkLine/>
-          </ Segment >
-          <Menu.Item
-            name='home'
-            //active={activeItem === 'home'}
-            //onClick={this.handleItemClick}
-          />
-          <Menu.Item
-            name='user page'
-            //active={activeItem === 'user'}
-           // onClick={this.handleItemClick}
-          />
-          <Menu.Menu position='right centre'>
-            <Login/>
-          </Menu.Menu>
-        </Menu>
+  return (
+    <div>
+      <Menu pointing secondary>
+        <Segment position="down">
+          Bookmark
+          <RiBookMarkLine />
+        </Segment>
+        <Menu.Item
+          name="home"
+          //active={activeItem === 'home'}
+          //onClick={this.handleItemClick}
+        />
+        <Menu.Item
+          name="user page"
+          //active={activeItem === 'user'}
+          // onClick={this.handleItemClick}
+        />
 
-       
-      </div>
-    )
-  }
+        <Menu.Item name="login" onClick={Login} />
+      </Menu>
+    </div>
+  );
 }
 
+export default Navbar;

@@ -2,10 +2,10 @@ const router = require("express").Router();
 
 const BooksController = require("../../controllers/BooksControllers");
 
-router.route("/").get(BooksController.findAll).post(BooksController.create);
+router.route("/")..post(BooksController.create);
 router
-  .route("/:id")
-  .get(BooksController.findById)
+  .route("/:sub")
+  .get(BooksController.findAll)
   .put(BooksController.update)
   .delete(BooksController.remove);
 
