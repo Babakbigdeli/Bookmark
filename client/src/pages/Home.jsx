@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import { Grid } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
-import "./style/Home.css";
+
 
 function Home() {
   const [subKey, setSubKey] = useState("");
@@ -56,20 +56,22 @@ function Home() {
     });
   };
 
-  return (
-    <div className="home">
-      <Navbar />
-      <Searchbar
-        q={q}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-
-      <ul>
+    return (
+     <>
+     <Navbar />
+     <Grid divided="vertically">
+       <Grid.Row columns={2}>
+         <Grid.Column>
+           <Searchbar 
+           q={q}
+           handleChange={handleChange}
+           handleSubmit={handleSubmit}
+           />
+           <ul>
         {books.length ? (
           books.map((book) => (
-            <SearchResultCard
-              id={book.id}
+           <SearchResultCard 
+           id={book.id}
               title={book.volumeInfo.title}
               authors={book.volumeInfo.authors.join(", ")}
               description={book.volumeInfo.description}
@@ -99,16 +101,25 @@ function Home() {
                   Save to Want to Read
                 </button>
               )}
-            />
-          ))
+              />
+              ))
         ) : (
           <p>No books to display. Are you sure you have searched?</p>
         )}
-      </ul>
-      <Banner />
-      <Footer />
-    </div>
-  );
-}
+        </ul>
+         </Grid.Column>
+         <Grid.Column>
+           <NewsFeed />
+         </Grid.Column>
+       </Grid.Row>
+       <Grid.Row columns={1}>
+         <Grid.Column>
+           <Banner />
+         </Grid.Column>
+       </Grid.Row>
+     </Grid>
+     <Footer/>
+   </>
+    )}
 
 export default Home;
