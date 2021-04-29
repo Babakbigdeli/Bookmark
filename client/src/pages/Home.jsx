@@ -13,7 +13,8 @@ function Home() {
   const [subKey, setSubKey] = useState("");
   const [books, setBooks] = useState([]);
   const [q, setQ] = useState("");
-  // const { user } = useAuth0();
+  const { user } = useAuth0();
+  console.log("I am the user: ", user)
 
   //  setSubKey(user.sub);
 
@@ -32,7 +33,6 @@ function Home() {
   const handleChange = (e) => {
     setQ(e.target.value);
   };
-  const user = useAuth0();
 
   // const getUSerSubKey = () => {
   //   console.log(user);
@@ -50,9 +50,14 @@ function Home() {
       number_of_pages: book.volumeInfo.pageCount,
       language: book.volumeInfo.language,
       subKey: "test",
-      status: status,
+      status,
       image: book.volumeInfo.imageLinks.thumbnail,
-    });
+    }).then(({data}) => {
+      const bookId = data._id;
+
+      API.saveBookToUser(user.email, bookId)
+
+    })
   };
 
   return (

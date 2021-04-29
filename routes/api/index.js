@@ -3,9 +3,11 @@ const router = require("express").Router();
 const bookmarkRoutes = require("./bookmark");
 const guardianRoutes = require("./guardian");
 const googlebooksRoutes = require("./googlebooks");
+const userRoutes = require("./user");
 
 // API Routes
 router.use("/books", bookmarkRoutes);
+router.use("/user", userRoutes);
 router.use("/googlebooks", googlebooksRoutes);
 router.use("/guardian", guardianRoutes);
 
