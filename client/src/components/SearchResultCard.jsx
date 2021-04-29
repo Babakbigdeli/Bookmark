@@ -1,26 +1,36 @@
 import React from "react";
 import { Button, Card, Image } from "semantic-ui-react";
 
-const SearchResultCard = ({ key, cover_id, title, PastButton, PresentButton, FutureButton}) => (
- // <div className="searchResultCard">
-    <Card.Group>
+function SearchResultCard({
+  key,
+  image,
+  title,
+  authors,
+  description,
+  number_of_pages,
+  language,
+  PastButton,
+  PresentButton,
+  FutureButton,
+}) {
+  return (
+    <div>
       <Card>
         <Card.Content>
-          <Image
-            floated="right"
-            size="mini"
-            //src='/images/avatar/large/steve.jpg'
-          />
           <Card.Header>{title}</Card.Header>
-          <Card.Meta>author</Card.Meta>
-          <Card.Description>book info</Card.Description>
+          <Image floated="left" src={image} />
+          <Card.Description>Author : {authors}</Card.Description>
+          <Card.Description>Description : {description}</Card.Description>
+          <Card.Description>
+            Number Of Pages : {number_of_pages}
+          </Card.Description>
+          <Card.Description>Language : {language}</Card.Description>
         </Card.Content>
-        <Card.Content extra>
-           <PastButton /> <PresentButton /> <FutureButton /> 
+        <Card.Content>
+          <PastButton /> <PresentButton /> <FutureButton />
         </Card.Content>
       </Card>
-    </Card.Group>
-  //</div>
-);
-
+    </div>
+  );
+}
 export default SearchResultCard;
