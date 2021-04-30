@@ -18,7 +18,7 @@ if(process.env.NODE_ENV === "production"){
 }
 
 //Connect to Mongo DB 
-mongoose.connect("mongodb://localhost:27017/bookmark", {
+mongoose.connect("mongodb+srv://omayma:Chanel123@cluster0.ummds.mongodb.net/?retryWrites=true&w=majority", {
     useCreateIndex: true,useNewUrlParser: true, useUnifiedTopology:true
 })
 
