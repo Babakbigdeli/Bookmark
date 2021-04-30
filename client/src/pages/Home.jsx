@@ -8,20 +8,20 @@ import Footer from "../components/Footer";
 import { Grid } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
+import "../pages/style/Home.css";
 
 function Home() {
   const [subKey, setSubKey] = useState("");
   const [books, setBooks] = useState([]);
   const [q, setQ] = useState("");
-  const { user } = useAuth0();
-  console.log("I am the user: ", user)
+  // const { user } = useAuth0();
 
   //  setSubKey(user.sub);
 
   const getBooks = () => {
     API.findBooks(q).then((response) => {
       console.log(response.data);
-      setBooks(response.data);
+      setBooks(response.data.splice(4));
     });
   };
 
@@ -33,6 +33,7 @@ function Home() {
   const handleChange = (e) => {
     setQ(e.target.value);
   };
+  const user = useAuth0();
 
   // const getUSerSubKey = () => {
   //   console.log(user);
@@ -50,86 +51,66 @@ function Home() {
       number_of_pages: book.volumeInfo.pageCount,
       language: book.volumeInfo.language,
       subKey: "test",
-      status,
+      status: status,
       image: book.volumeInfo.imageLinks.thumbnail,
-    }).then(({data}) => {
-      const bookId = data._id;
-
-      API.saveBookToUser(user.email, bookId)
-
-    })
+    });
   };
 
   return (
-    <>
+    <div className="home">
       <Navbar />
-      <Grid divided="vertically">
-        <Grid.Row columns={2}>
-          <Grid.Column>
-            <Searchbar
-              q={q}
-              handleChange={handleChange}
-              handleSubmit={handleSubmit}
-            />
-            <ul>
-              {books.length ? (
-                books.map((book) => (
-                  <SearchResultCard
-                    id={book.id}
-                    title={book.volumeInfo.title}
-                    authors={book.volumeInfo.authors.join(", ")}
-                    description={book.volumeInfo.description}
-                    number_of_pages={book.volumeInfo.pageCount}
-                    language={book.volumeInfo.language}
-                    PastButton={() => (
-                      <button
-                        value="past"
-                        onClick={(event) =>
-                          saveBookToDB(event.target.value, book.id)
-                        }
-                      >
-                        Save to History
-                      </button>
-                    )}
-                    PresentButton={() => (
-                      <button
-                        value="present"
-                        onClick={(event) =>
-                          saveBookToDB(event.target.value, book.id)
-                        }
-                      >
-                        Save to Currently Reading
-                      </button>
-                    )}
-                    FutureButton={() => (
-                      <button
-                        value="future"
-                        onClick={(event) =>
-                          saveBookToDB(event.target.value, book.id)
-                        }
-                      >
-                        Save to Want to Read
-                      </button>
-                    )}
-                  />
-                ))
-              ) : (
-                <p>No books to display. Are you sure you have searched?</p>
+      <br></br>
+      <Searchbar
+        q={q}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+      />
+      <br></br>
+      <NewsFeed />
+      <br></br>
+      <Grid container columns={3}>
+        {books.length ? (
+          books.map((book) => (
+            <SearchResultCard
+              id={book.id}
+              title={book.volumeInfo.title}
+              authors={book.volumeInfo.authors.join(", ")}
+              description={book.volumeInfo.description}
+              number_of_pages={book.volumeInfo.pageCount}
+              language={book.volumeInfo.language}
+              PastButton={() => (
+                <button
+                  value="past"
+                  onClick={(event) => saveBookToDB(event.target.value, book.id)}
+                >
+                  Save to History
+                </button>
               )}
-            </ul>
-          </Grid.Column>
-          <Grid.Column>
-            <NewsFeed />
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row columns={1}>
-          <Grid.Column>
-            <Banner />
-          </Grid.Column>
-        </Grid.Row>
+              PresentButton={() => (
+                <button
+                  value="present"
+                  onClick={(event) => saveBookToDB(event.target.value, book.id)}
+                >
+                  Save to Currently Reading
+                </button>
+              )}
+              FutureButton={() => (
+                <button
+                  value="future"
+                  onClick={(event) => saveBookToDB(event.target.value, book.id)}
+                >
+                  Save to Want to Read
+                </button>
+              )}
+            />
+          ))
+        ) : (
+          <p>No books to display. Are you sure you have searched?</p>
+        )}
       </Grid>
+      <Banner />
       <Footer />
-    </>
+    </div>
   );
 }
 

@@ -6,7 +6,6 @@ function SearchResultCard({
   image,
   title,
   authors,
-  description,
   number_of_pages,
   language,
   PastButton,
@@ -20,7 +19,6 @@ function SearchResultCard({
           <Card.Header>{title}</Card.Header>
           <Image floated="left" src={image} />
           <Card.Description>Author : {authors}</Card.Description>
-          <Card.Description>Description : {description}</Card.Description>
           <Card.Description>
             Number Of Pages : {number_of_pages}
           </Card.Description>
