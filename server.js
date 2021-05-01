@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
 //Connect to Mongo DB
 mongoose
   .connect(process.env.MONGODB_URI ||
-    "mongodb+srv://omayma:Chanel123@cluster0.ummds.mongodb.net/bookmark?retryWrites=true&w=majority",
+    "mongodb://localhost/bookmark",
     {
       useCreateIndex: true,
       useNewUrlParser: true,
