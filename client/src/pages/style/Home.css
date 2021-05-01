@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Original+Surfer&display=swap");
 
 body {
   font-family: "Original Surfer", sans-serif;
   padding-bottom: 20px;
 }
-.footer{
+.footer {
   margin-top: 1rem;
   padding: 1rem;
   background-color: rgb(180, 134, 243);
@@ -15,7 +15,7 @@ body {
   text-align: center;
 }
 
-.navbar{
+.navbar {
   background-color: rgb(180, 134, 243);
 }
 
@@ -23,40 +23,63 @@ body {
   color: rgb(5, 5, 5);
 }
 
-.loginButton{
+.loginButton {
   background-color: rgb(67, 18, 126);
 }
 
-.historyButton{
+.historyButton {
   background-color: rgb(211, 68, 68);
-  padding:2px;
+  padding: 2px;
   width: 75%;
   cursor: pointer;
   height: 45%;
-  margin: 10%
+  margin: 10%;
 }
 
-.currentlyButton{
+.currentlyButton {
   background-color: rgb(174, 199, 74);
-  padding:2px;
+  padding: 2px;
   width: 75%;
   cursor: pointer;
   height: 45%;
-  margin: 10%
+  margin: 10%;
 }
 
-.wantButton{
+.wantButton {
   background-color: rgb(109, 40, 158);
-  padding:2px;
+  padding: 2px;
   width: 75%;
   cursor: pointer;
   height: 45%;
-  margin: 10%
+  margin: 10%;
 }
 
-
-.bookfindsent{
+.bookfindsent {
   text-align: center;
 }
 
+.movingtext {
+  margin: 0 auto;
+  white-space: nowrap;
+  overflow: hidden;
+}
 
+.movingtext span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: movingtext 20s linear infinite;
+  color: black;
+}
+
+@keyframes movingtext {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(-100%, 0);
+  }
+}
+
+.banner {
+  font-size: 22px;
+}
