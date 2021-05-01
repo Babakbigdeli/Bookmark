@@ -37,7 +37,7 @@ export default class CurrentlyAccordion extends Component {
                   <Icon name="dropdown" color="red" />
                   {book.title}
                 </Accordion.Title>
-                <Accordion.Content active={activeIndex === 0}>
+                <Accordion.Content active={activeIndex === index}>
                   <p>{book.authors}</p>
                   <p>{book.number_of_pages}</p>
                 </Accordion.Content>
