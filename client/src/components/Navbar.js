@@ -1,43 +1,26 @@
-import {} from "react-router-dom";
-import { RiBookMarkLine } from "react-icons/ri";
 import React from "react";
-import { Menu, Segment } from "semantic-ui-react";
-import LoginButton from "./LoginButton";
-import LogoutButton from "./LogoutButton";
+import { Navbar, Nav } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import Login from "../components/LoginButton";
+import Logout from "../components/LogoutButton";
 
-
-function Navbar() {
-  //state = { activeItem: 'home' }
-
-  //handleItemClick = (e, { name }) => this.setState({ activeItem: name })
-
-  //const { activeItem } = this.state
-
+function NavBar() {
   return (
-    
-      <Menu pointing secondary>
-        <Segment position="down">
-          Bookmark
-          <RiBookMarkLine />
-        </Segment>
-        <Menu.Item
-          name="home"
-          //active={activeItem === 'home'}
-          //onClick={this.handleItemClick}
-        />
-        <Menu.Item
-          name="user page"
-          //active={activeItem === 'user'}
-          // onClick={this.handleItemClick}
-        />
-
-        <Menu.Menu position='right'>
-          <LoginButton/>
-          <LogoutButton/>
-        </Menu.Menu>
-      </Menu>
-    
+    <div className="navbar">
+      <Navbar bg="light" variant="light">
+        <Navbar.Brand href="/">BOOKMARK</Navbar.Brand>
+        <Nav className="mr-auto">
+          <Nav.Link>
+            <Link to="/">Home</Link>
+          </Nav.Link>
+          <Nav.Link>
+            <Link to="/userpage">User Page</Link>{" "}
+          </Nav.Link>
+        </Nav>
+        <Login />
+        <Logout />
+      </Navbar>
+    </div>
   );
 }
-
-export default Navbar;
+export default NavBar;

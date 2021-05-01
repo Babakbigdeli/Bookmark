@@ -21,25 +21,30 @@ export default class NewsFeed extends React.Component {
 
   render() {
     return (
-      <div className="newsFeed">
+      <Feed.Event>
         <Feed>
           <Feed.Label>
-            <h2>Whats the latest news in world of books</h2>
+            <Icon name="newspaper" />
+            <bold>NEWS FEED</bold>
           </Feed.Label>
-          {this.state.loading || !this.state.news ? (
-            <div>loading...</div>
-          ) : (
-            this.state.news.map((newsArticle) => {
-              return (
-                <div>
-                  <div>{newsArticle.webTitle}</div>
-                  <a>{newsArticle.webUrl}</a>
-                </div>
-              );
-            })
-          )}
+          <Feed.Content>
+            <Feed.Summary>
+              {this.state.loading || !this.state.news ? (
+                <div>loading...</div>
+              ) : (
+                this.state.news.map((newsArticle) => {
+                  return (
+                    <div>
+                      <div>{newsArticle.webTitle}</div>
+                      <a href={newsArticle.webUrl}>link to article</a>
+                    </div>
+                  );
+                })
+              )}
+            </Feed.Summary>
+          </Feed.Content>
         </Feed>
-      </div>
+      </Feed.Event>
     );
   }
 }

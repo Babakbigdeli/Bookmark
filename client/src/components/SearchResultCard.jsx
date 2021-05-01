@@ -1,5 +1,5 @@
 import React from "react";
-import { Button, Card, Image } from "semantic-ui-react";
+import {Card, Image } from "semantic-ui-react";
 
 function SearchResultCard({
   key,
@@ -14,6 +14,7 @@ function SearchResultCard({
 }) {
   return (
     <div>
+      <hr></hr>
       <Card>
         <Card.Content>
           <Card.Header>{title}</Card.Header>
@@ -28,6 +29,7 @@ function SearchResultCard({
           <PastButton /> <PresentButton /> <FutureButton />
         </Card.Content>
       </Card>
+      <hr></hr>
     </div>
   );
 }

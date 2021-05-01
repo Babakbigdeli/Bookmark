@@ -5,9 +5,8 @@ const Banner = () => {
     <div className="banner">
       <p className="movingtext">
         <span>
-          If you love books, you'll love Bookmark. Here you can search books,
-          save them into categories and keep track of your progress when reading
-          them.
+          If you love books, you'll love Bookmark. Here you can search for books,
+          save them into categories and keep track of your progress.
         </span>
       </p>
     </div>

@@ -26,7 +26,7 @@ export default class HistoryAccordion extends Component {
             index={0}
             onClick={this.handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="olive"/>
             Book 1
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
@@ -42,7 +42,7 @@ export default class HistoryAccordion extends Component {
             index={1}
             onClick={this.handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="olive"/>
             Book 2
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
@@ -59,7 +59,7 @@ export default class HistoryAccordion extends Component {
             index={2}
             onClick={this.handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="olive"/>
             Book 3
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>

@@ -26,7 +26,7 @@ export default class CurrentlyAccordion extends Component {
             index={0}
             onClick={this.handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="red" />
             Book 1
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
@@ -42,9 +42,9 @@ export default class CurrentlyAccordion extends Component {
             index={1}
             onClick={this.handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="red"/>
             Book 2
-          </Accordion.Title>
+          </Accordion.Title >
           <Accordion.Content active={activeIndex === 1}>
             <p>
               There are many breeds of dogs. Each breed varies in size and
@@ -59,7 +59,7 @@ export default class CurrentlyAccordion extends Component {
             index={2}
             onClick={this.handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="red" />
             Book 3
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>

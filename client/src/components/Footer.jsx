@@ -1,11 +1,12 @@
 import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-function Footer() {
-  return (
-    <div className="footer">
-      <p>Made by Omayma, Tracey, Babak</p>
-    </div>
-  );
-}
+
+const Footer = () => (
+  <div className="footer">
+    <p>&copy; The Travelling Coders 2021</p>
+    <p>Babak, Tracey & Omayma</p>
+  </div>
+);
 
 export default Footer;

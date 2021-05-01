@@ -26,7 +26,7 @@ function WantToReadAccordion() {
             index={0}
             onClick={handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="purple"/>
             Book 1
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 0}>
@@ -42,7 +42,7 @@ function WantToReadAccordion() {
             index={1}
             onClick={handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="purple"/>
             Book 2
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 1}>
@@ -59,7 +59,7 @@ function WantToReadAccordion() {
             index={2}
             onClick={handleClick}
           >
-            <Icon name="dropdown" />
+            <Icon name="dropdown" color="purple"/>
             Book 3
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 2}>

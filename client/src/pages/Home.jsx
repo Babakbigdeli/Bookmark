@@ -8,7 +8,7 @@ import Footer from "../components/Footer";
 import { Grid } from "semantic-ui-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
-import "../pages/style/Home.css";
+import "./style/Home.css";
 
 function Home() {
   const [subKey, setSubKey] = useState("");
@@ -57,60 +57,85 @@ function Home() {
   };
 
   return (
-    <div className="home">
-      <Navbar />
-      <br></br>
-      <Searchbar
-        q={q}
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-      />
-      <br></br>
-      <NewsFeed />
-      <br></br>
-      <Grid container columns={3}>
-        {books.length ? (
-          books.map((book) => (
-            <SearchResultCard
-              id={book.id}
-              title={book.volumeInfo.title}
-              authors={book.volumeInfo.authors.join(", ")}
-              description={book.volumeInfo.description}
-              number_of_pages={book.volumeInfo.pageCount}
-              language={book.volumeInfo.language}
-              PastButton={() => (
-                <button
-                  value="past"
-                  onClick={(event) => saveBookToDB(event.target.value, book.id)}
-                >
-                  Save to History
-                </button>
-              )}
-              PresentButton={() => (
-                <button
-                  value="present"
-                  onClick={(event) => saveBookToDB(event.target.value, book.id)}
-                >
-                  Save to Currently Reading
-                </button>
-              )}
-              FutureButton={() => (
-                <button
-                  value="future"
-                  onClick={(event) => saveBookToDB(event.target.value, book.id)}
-                >
-                  Save to Want to Read
-                </button>
-              )}
-            />
-          ))
-        ) : (
-          <p>No books to display. Are you sure you have searched?</p>
-        )}
-      </Grid>
-      <Banner />
-      <Footer />
-    </div>
+    <>
+      <div className="body">
+        <Navbar />
+        <Grid divided="vertically">
+          <Grid.Row columns={1}>
+            <Grid.Column>
+              <hr></hr>
+              <Banner />
+            </Grid.Column>
+          </Grid.Row>
+          <Grid.Row columns={2}>
+            <Grid.Column>
+              <hr></hr>
+              <hr></hr>
+              <Searchbar
+                q={q}
+                handleChange={handleChange}
+                handleSubmit={handleSubmit}
+              />
+              <ul>
+                {books.length ? (
+                  books.map((book) => (
+                    <SearchResultCard
+                      id={book.id}
+                      title={book.volumeInfo.title}
+                      authors={book.volumeInfo.authors.join(", ")}
+                      image={book.volumeInfo.imageLinks.thumbnail}
+                      number_of_pages={book.volumeInfo.pageCount}
+                      language={book.volumeInfo.language}
+                      PastButton={() => (
+                        <button
+                          className="historyButton"
+                          value="past"
+                          onClick={(event) =>
+                            saveBookToDB(event.target.value, book.id)
+                          }
+                        >
+                          Save to History
+                        </button>
+                      )}
+                      PresentButton={() => (
+                        <button
+                          className="currentlyButton"
+                          value="present"
+                          onClick={(event) =>
+                            saveBookToDB(event.target.value, book.id)
+                          }
+                        >
+                          Save to Currently Reading
+                        </button>
+                      )}
+                      FutureButton={() => (
+                        <button
+                          className="wantButton"
+                          value="future"
+                          onClick={(event) =>
+                            saveBookToDB(event.target.value, book.id)
+                          }
+                        >
+                          Save to Want to Read
+                        </button>
+                      )}
+                    />
+                  ))
+                ) : (
+                  <div className="bookfindsent">
+                    <p>FIND YOUR BOOK & BEGIN YOUR BOOKMARKING JOURNEY</p>
+                  </div>
+                )}
+              </ul>
+            </Grid.Column>
+            <Grid.Column>
+              <NewsFeed />
+            </Grid.Column>
+          </Grid.Row>
+          <Footer />
+        </Grid>
+      </div>
+    </>
   );
 }
 
