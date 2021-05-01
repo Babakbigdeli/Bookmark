@@ -33,8 +33,8 @@ mongoose
     app.get("*", (req, res) => {
       res.sendFile(path.join(__dirname, "./client/build/index.html"));
     });
-    
-    //Start the server
+
+    //Start the serverr
     app.listen(PORT, () => {
       console.log("Connected on port:" + PORT);
     });
