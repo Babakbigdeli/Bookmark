@@ -10,7 +10,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import API from "../utils/API";
 import "./style/Home.css";
 
-function Home() {
+function Home({ email }) {
   const [subKey, setSubKey] = useState("");
   const [books, setBooks] = useState([]);
   const [q, setQ] = useState("");
@@ -53,7 +53,13 @@ function Home() {
       subKey: "test",
       status: status,
       image: book.volumeInfo.imageLinks.thumbnail,
-    });
+    })
+      .then(({ data: { _id } }) => {
+        API.saveBookToUser(email, _id);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
   };
 
   return (

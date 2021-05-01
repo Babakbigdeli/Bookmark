@@ -6,7 +6,7 @@ import UserPage from "../src/pages/UserPage";
 import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-  const { isLoading } = useAuth0();
+  const { isLoading, user } = useAuth0();
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -14,8 +14,16 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <Route exact path="/" component={Home} />
-          <Route exact path="/userpage" component={UserPage} />
+          <Route
+            exact
+            path="/"
+            component={() => <Home email={user ? user.email : ""} />}
+          />
+          <Route
+            exact
+            path="/userpage"
+            component={() => <UserPage email={user ? user.email : ""} />}
+          />
           <Route exact path="/auth0" component={useAuth0} />
         </div>
       </Router>
