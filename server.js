@@ -23,14 +23,17 @@ mongoose
   .connect(process.env.MONGODB_URI ||
     "mongodb://localhost/bookmark",
     {
-      useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useFindAndModify: false,
     }
   )
   .then(() => {
     console.log("Connected to Mongo Database");
+
+    app.get("*", (req, res) => {
+      res.sendFile(path.join(__dirname, "./client/build/index.html"));
+    });
+    
     //Start the server
     app.listen(PORT, () => {
       console.log("Connected on port:" + PORT);
