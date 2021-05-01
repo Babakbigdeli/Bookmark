@@ -10,6 +10,7 @@ const LogoutButton = () => {
           {" "}
           Log Out
         </button>
+        
       </div>
     )
   );
