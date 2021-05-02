@@ -17,7 +17,7 @@ function App() {
           <Route
             exact
             path="/"
-            component={<Home />}
+            component={() => <Home email={user ? user.email : ""} />}
           />
           <Route
             exact
