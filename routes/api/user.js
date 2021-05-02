@@ -3,7 +3,7 @@ const router = require("express").Router();
 const UserController = require("../../controllers/UserController");
 
 router
-  .route("/books")
+  .route("/books/:email")
   .post(UserController.addBook)
   .get(UserController.getBooks)
 
