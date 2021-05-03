@@ -9,15 +9,10 @@ export default {
   saveBook: function (bookObject) {
     return axios.post("/books/", bookObject);
   },
-  
-  // getBooks: (email) => {
-  //   return axios
-  //      .get(`/user/books?email=${email}`)
-  //     .then(({ data }) => data || [])
-  //     .catch((err) => {
-  //       throw new Error(err);
-  //     });
-  // },
+
+  getBooks: () => {
+    return axios.get("/books/");
+  },
 
   saveBookToUser: (email, bookId) => {
     return axios.post("/user/books", {

@@ -33,7 +33,7 @@ function Home({ email }) {
   const handleChange = (e) => {
     setQ(e.target.value);
   };
-  const user = useAuth0();
+ // const user = useAuth0();
 
   // const getUSerSubKey = () => {
   //   console.log(user);
@@ -50,13 +50,15 @@ function Home({ email }) {
       description: book.volumeInfo.description,
       number_of_pages: book.volumeInfo.pageCount,
       language: book.volumeInfo.language,
-      subKey: "test",
+      subKey: "test2",
       status: status,
       image: book.volumeInfo.imageLinks.thumbnail,
     })
-      .then(({ data: { _id } }) => {
-        API.saveBookToUser(email, _id);
-      })
+     .then(() => 
+    //({ data: { _id } }) => {
+    //    API.saveBookToUser(email, _id);
+    getBooks()
+      )
       .catch((err) => {
         throw new Error(err);
       });

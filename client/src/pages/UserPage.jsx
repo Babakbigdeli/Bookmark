@@ -11,30 +11,37 @@ import { Segment, Grid } from "semantic-ui-react";
 const UserPage = ({ email }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleClick = (e, titleProps) => {
     const { index } = titleProps;
     const { activeIndex } = this.state;
     const newIndex = activeIndex === index ? -1 : index;
-
     setActiveIndex({ activeIndex: newIndex });
   };
 
-  // useEffect(() => {
-  //   API.getBooks(email).then((usersBooks) => {
-  //     setBooks(usersBooks);
-  //   });
-  // }, []);
 
-  return (
-    <>
-      <Navbar />
-      <Segment>
+  useEffect(() => {
+    API.getBooks().then((usersBooks) => {
+      console.log(usersBooks)
+      const filteredBooks = usersBooks.data.filter(userbook => userbook.subKey === "test2")
+      console.log(filteredBooks)
+      setBooks(filteredBooks);
+      setLoading(false);
+    });
+  }, [setBooks]);
+
+  
+  if (!loading) {
+    return (
+      <>
+       <Navbar />
+          <Segment>
         <Grid columns={4} relaxed="very">
           <Grid.Column>
             <Currently
               books={books.filter(({ status }) => status === "present")}
-            />
+              />
           </Grid.Column>
           <Grid.Column>
             <History books={books.filter(({ status }) => status === "past")} />
@@ -47,8 +54,16 @@ const UserPage = ({ email }) => {
           </Grid.Column>
         </Grid>
       </Segment>
-    </>
-  );
+      </>
+    )
+  } else {
+    return (
+      <>
+      <h3>Loading...</h3>
+      </>
+    )
+  }
+  
 };
 
 export default UserPage;
