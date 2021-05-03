@@ -2,13 +2,9 @@ const { Book } = require("../models");
 
 module.exports = {
   findAll: function (req, res) {
-    const sub = req.params.sub;
-    Book.find(req.query)
-      .then((books) =>
-        books.filter((book) => {
-          book.sub === sub;
-        })
-      )
+   // const sub = req.params.sub;
+    Book.find()
+      
       .then((dbModel) => res.json(dbModel))
       .catch((err) => res.status(422).json(err));
   },
