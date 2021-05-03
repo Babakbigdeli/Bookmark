@@ -19,13 +19,10 @@ if (process.env.NODE_ENV === "production") {
 
 //Connect to Mongo DB
 mongoose
-  .connect(process.env.MONGODB_URI ||
-    "mongodb://localhost:27017/bookmark",
-    {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    }
-  )
+  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/bookmark", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then(() => {
     console.log("Connected to Mongo Database");
 
@@ -41,9 +38,3 @@ mongoose
   .catch((err) => {
     throw new Error(err);
   });
-
-
-
-
-
-
