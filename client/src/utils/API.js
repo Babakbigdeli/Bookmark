@@ -14,10 +14,11 @@ export default {
     return axios.get("/books/");
   },
 
-  saveBookToUser: (email, bookId) => {
-    return axios.post("/user/books", {
-      email,
-      bookId,
-    });
+  deleteBook: (id) => {
+    return axios.delete("/books/" + id);
+  },
+
+  updateBook: (newBookData, id) => {
+    return axios.put("/books/" + id, newBookData);
   },
 };

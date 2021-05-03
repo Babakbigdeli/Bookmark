@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Container, Header, Accordion, Icon } from "semantic-ui-react";
+import API from "../utils/API";
 
 export default class HistoryAccordion extends Component {
   constructor(props) {
@@ -9,6 +10,15 @@ export default class HistoryAccordion extends Component {
   }
 
   state = { activeIndex: 0 };
+
+  refreshPage = () => {
+    window.location.reload();
+  };
+  handleDelete = (id) => {
+    API.deleteBook(id).then(() => {
+      this.refreshPage();
+    });
+  };
 
   handleClick = (e, titleProps) => {
     const { index } = titleProps;
@@ -41,6 +51,12 @@ export default class HistoryAccordion extends Component {
                 <Accordion.Content active={activeIndex === index}>
                   <p>{book.authors}</p>
                   <p>{book.number_of_pages}</p>
+                  <button
+                    class="ui secondary button"
+                    onClick={() => this.handleDelete(book._id)}
+                  >
+                    Delete
+                  </button>
                 </Accordion.Content>
               </>
             );
