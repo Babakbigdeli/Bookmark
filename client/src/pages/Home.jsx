@@ -11,8 +11,7 @@ import API from "../utils/API";
 import "./style/Home.css";
 import SearchResultCardLoggedOut from "../components/SearchResultCardLoggedOut";
 
-function Home({ email }) {
-  const [subKey, setSubKey] = useState("");
+function Home() {
   const [books, setBooks] = useState([]);
   const [q, setQ] = useState("");
    const { user } = useAuth0();
