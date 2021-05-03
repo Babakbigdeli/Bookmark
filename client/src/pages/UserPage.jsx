@@ -5,6 +5,7 @@ import History from "../components/HistoryAccordion";
 import Currently from "../components/CurrentlyAccordion";
 import Want from "../components/WantToReadAccordion";
 import API from "../utils/API";
+import { useAuth0 } from "@auth0/auth0-react";
 
 import { Segment, Grid } from "semantic-ui-react";
 
@@ -12,6 +13,7 @@ const UserPage = ({ email }) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
+  const { user } = useAuth0();
 
   const handleClick = (e, titleProps) => {
     const { index } = titleProps;
@@ -24,20 +26,34 @@ const UserPage = ({ email }) => {
   useEffect(() => {
     API.getBooks().then((usersBooks) => {
       console.log(usersBooks)
-      const filteredBooks = usersBooks.data.filter(userbook => userbook.subKey === "test2")
+      let filteredBooks = []; 
+      if (user !== undefined) {
+         filteredBooks = usersBooks.data.filter(userbook => userbook.subKey === user.sub)
+      }
       console.log(filteredBooks)
       setBooks(filteredBooks);
       setLoading(false);
     });
   }, [setBooks]);
 
-  
-  if (!loading) {
+  if(user === undefined){
+    return (
+      <>
+       <Navbar />
+      <h1>
+        No user found, please sign up and/or login
+      </h1>
+      </>
+    )
+  } else if (!loading) {
     return (
       <>
        <Navbar />
           <Segment>
         <Grid columns={4} relaxed="very">
+          <Grid.Column>
+            <Want books={books.filter(({ status }) => status === "future")} />
+          </Grid.Column>
           <Grid.Column>
             <Currently
               books={books.filter(({ status }) => status === "present")}
@@ -45,9 +61,6 @@ const UserPage = ({ email }) => {
           </Grid.Column>
           <Grid.Column>
             <History books={books.filter(({ status }) => status === "past")} />
-          </Grid.Column>
-          <Grid.Column>
-            <Want books={books.filter(({ status }) => status === "future")} />
           </Grid.Column>
           <Grid.Column>
             <ActivityFeed />
