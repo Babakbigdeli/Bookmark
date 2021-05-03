@@ -20,11 +20,11 @@ const UserPage = ({ email }) => {
     setActiveIndex({ activeIndex: newIndex });
   };
 
-  useEffect(() => {
-    API.getBooks(email).then((usersBooks) => {
-      setBooks(usersBooks);
-    });
-  }, []);
+  // useEffect(() => {
+  //   API.getBooks(email).then((usersBooks) => {
+  //     setBooks(usersBooks);
+  //   });
+  // }, []);
 
   return (
     <>
