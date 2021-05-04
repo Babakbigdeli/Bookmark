@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import Login from "../components/LoginButton";
-import Logout from "../components/LogoutButton";
+import Login from "./LoginButton";
+import Logout from "./LogoutButton";
 
 function NavBar() {
   return (

@@ -49,8 +49,8 @@ export default class HistoryAccordion extends Component {
                   {book.title}
                 </Accordion.Title>
                 <Accordion.Content active={activeIndex === index}>
-                  <p>{book.authors}</p>
-                  <p>{book.number_of_pages}</p>
+                  <p>Author(s): {book.authors}</p>
+                  <p>Number Of Pages: {book.number_of_pages}</p>
                   <button
                     class="ui secondary button"
                     onClick={() => this.handleDelete(book._id)}
