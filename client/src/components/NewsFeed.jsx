@@ -36,7 +36,9 @@ export default class NewsFeed extends React.Component {
                   return (
                     <div>
                       <div>{newsArticle.webTitle}</div>
-                      <a href={newsArticle.webUrl}>link to article</a>
+                      <a href={newsArticle.webUrl} target="blank">
+                        link to article
+                      </a>
                     </div>
                   );
                 })
