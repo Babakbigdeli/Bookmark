@@ -36,6 +36,10 @@ body {
   margin: 10%;
 }
 
+.historyButton:hover {
+  transform: scale(1.5);
+}
+
 .currentlyButton {
   background-color: rgb(174, 199, 74);
   padding: 2px;
@@ -45,6 +49,10 @@ body {
   margin: 10%;
 }
 
+.currentlyButton:hover {
+  transform: scale(1.5);
+}
+
 .wantButton {
   background-color: rgb(109, 40, 158);
   padding: 2px;
@@ -52,6 +60,10 @@ body {
   cursor: pointer;
   height: 45%;
   margin: 10%;
+}
+
+.wantButton:hover {
+  transform: scale(1.5);
 }
 
 .bookfindsent {
@@ -68,8 +80,8 @@ body {
   display: inline-block;
   padding-left: 100%;
   animation: movingtext 20s linear infinite;
-  color:white;
-  background-color:  rgb(67, 18, 126);
+  color: white;
+  background-color: rgb(67, 18, 126);
 }
 
 @keyframes movingtext {
