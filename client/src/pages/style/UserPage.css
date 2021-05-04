@@ -1,4 +1,26 @@
-button[class="ui secondary button"] {
-  float: left;
-  margin-right: 5px;
+.updatetocurrently {
+  background-color: rgb(211, 68, 68);
+  padding: 2px;
+  width: 75%;
+  cursor: pointer;
+  height: 45%;
+  margin: 10%;
+}
+
+.updatetohistory {
+  background-color: rgb(174, 199, 74);
+  padding: 2px;
+  width: 75%;
+  cursor: pointer;
+  height: 45%;
+  margin: 10%;
+}
+
+.deletebutton {
+  background-color: rgb(5, 0, 0);
+  padding: 2px;
+  width: 75%;
+  cursor: pointer;
+  height: 45%;
+  margin: 10%;
 }

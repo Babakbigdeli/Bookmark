@@ -70,13 +70,13 @@ export default class CurrentlyAccordion extends Component {
                   <p>Author: {book.authors}</p>
                   <p>Number Of Pages: {book.number_of_pages}</p>
                   <button
-                    class="ui secondary button"
+                    class="updatetohistory"
                     onClick={() => this.handleUpdate(book._id)}
                   >
                     Send to History
                   </button>
                   <button
-                    class="ui secondary button"
+                    class="deletebutton"
                     onClick={() => this.handleDelete(book._id)}
                   >
                     Delete

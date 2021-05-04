@@ -72,13 +72,13 @@ export default class WantToReadAccordion extends Component {
                   <p>Author(s): {book.authors}</p>
                   <p>Number Of Pages: {book.number_of_pages}</p>
                   <button
-                    class="ui secondary button"
+                    class="updatetocurrently"
                     onClick={() => this.handleUpdate(book._id)}
                   >
                     Send to Currently
                   </button>
                   <button
-                    class="ui secondary button"
+                    class="deletebutton"
                     onClick={() => this.handleDelete(book._id)}
                   >
                     Delete
