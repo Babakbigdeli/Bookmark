@@ -6,6 +6,7 @@ import Currently from "../components/CurrentlyAccordion";
 import Want from "../components/WantToReadAccordion";
 import API from "../utils/API";
 import { useAuth0 } from "@auth0/auth0-react";
+import "./style/UserPage.css";
 
 import { Segment, Grid } from "semantic-ui-react";
 

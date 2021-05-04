@@ -1,15 +1,4 @@
-/* test / 
-class UserPage extends Component {
-  state = {};
-  render() {
-    return (
-      <>
-        <Navbar />
-      <LogoutButton />
-    
-      </>
-    
-     
-    );
-  }
+button[class="ui secondary button"] {
+  float: left;
+  margin-right: 5px;
 }

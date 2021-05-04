@@ -69,7 +69,7 @@ export default class WantToReadAccordion extends Component {
                   {book.title}
                 </Accordion.Title>
                 <Accordion.Content active={activeIndex === index}>
-                <p>Author(s): {book.authors}</p>
+                  <p>Author(s): {book.authors}</p>
                   <p>Number Of Pages: {book.number_of_pages}</p>
                   <button
                     class="ui secondary button"
