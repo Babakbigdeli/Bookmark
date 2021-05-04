@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(routes);
 
 //Assign PORT value
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 5000;
 
 //Set up serving of static assets from build in client when in production
 if (process.env.NODE_ENV === "production") {
@@ -18,13 +18,9 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Connect to Mongo DB
-mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/bookmark", {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log("Connected to Mongo Database");
+const uri = "mongodb+srv://bamboo:2040365@cluster0.ggmpj.mongodb.net/bookmark?retryWrites=true&w=majority";
+mongoose.connect(process.env.MONGODB_URI || uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
+
 
     app.get("*", (req, res) => {
       res.sendFile(path.join(__dirname, "./client/build/index.html"));
@@ -34,7 +30,5 @@ mongoose
     app.listen(PORT, () => {
       console.log("Connected on port:" + PORT);
     });
-  })
-  .catch((err) => {
-    throw new Error(err);
-  });
+
+
