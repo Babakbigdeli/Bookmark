@@ -14,15 +14,13 @@ import SearchResultCardLoggedOut from "../components/SearchResultCardLoggedOut";
 function Home() {
   const [books, setBooks] = useState([]);
   const [q, setQ] = useState("");
-   const { user } = useAuth0();
-
-
+  const { user } = useAuth0();
 
   const getBooks = () => {
     API.findBooks(q).then((response) => {
-      console.log(user)
+      console.log(user);
       console.log(response.data);
-      setBooks(response.data.splice(4));
+      setBooks(response.data.splice(0, 5));
     });
   };
 
@@ -34,7 +32,6 @@ function Home() {
   const handleChange = (e) => {
     setQ(e.target.value);
   };
- 
 
   const saveBookToDB = (status, id) => {
     const book = books.find((book) => book.id === id);
@@ -51,15 +48,12 @@ function Home() {
       status: status,
       image: book.volumeInfo.imageLinks.thumbnail,
     })
-     .then(() => 
- 
-    getBooks()
-      )
+      .then(() => getBooks())
       .catch((err) => {
         throw new Error(err);
       });
   };
-  if(user !== undefined) {
+  if (user !== undefined) {
     return (
       <>
         <div className="body">
@@ -90,7 +84,6 @@ function Home() {
                         image={book.volumeInfo.imageLinks.thumbnail}
                         number_of_pages={book.volumeInfo.pageCount}
                         language={book.volumeInfo.language}
-                      
                         PastButton={() => (
                           <button
                             className="historyButton"
@@ -145,8 +138,8 @@ function Home() {
   } else {
     return (
       <>
-      <div className="body">
-        <Navbar />
+        <div className="body">
+          <Navbar />
           <h1>Please sign up and/or login in order to save the books!</h1>
           <Grid divided="vertically">
             <Grid.Row columns={1}>
@@ -173,7 +166,7 @@ function Home() {
                         authors={book.volumeInfo.authors.join(", ")}
                         image={book.volumeInfo.imageLinks.thumbnail}
                         number_of_pages={book.volumeInfo.pageCount}
-                        language={book.volumeInfo.language} 
+                        language={book.volumeInfo.language}
                       />
                     ))
                   ) : (
@@ -189,10 +182,9 @@ function Home() {
             </Grid.Row>
             <Footer />
           </Grid>
-      </div>
-    </>
-      
-    )
+        </div>
+      </>
+    );
   }
 }
 
