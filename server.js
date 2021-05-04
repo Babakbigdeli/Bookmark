@@ -30,7 +30,5 @@ mongoose.connect(process.env.MONGODB_URI || uri, { useNewUrlParser: true, useCre
     app.listen(PORT, () => {
       console.log("Connected on port:" + PORT);
     });
-  })
-  .catch((err) => {
-    throw new Error(err);
-  });
+
+
