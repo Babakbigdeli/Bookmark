@@ -84,15 +84,15 @@ function Home() {
                         image={book.volumeInfo.imageLinks.thumbnail}
                         number_of_pages={book.volumeInfo.pageCount}
                         language={book.volumeInfo.language}
-                        PastButton={() => (
+                        FutureButton={() => (
                           <button
-                            className="historyButton"
-                            value="past"
+                            className="wantButton"
+                            value="future"
                             onClick={(event) =>
                               saveBookToDB(event.target.value, book.id)
                             }
                           >
-                            Save to History
+                            Save to Want to Read
                           </button>
                         )}
                         PresentButton={() => (
@@ -106,15 +106,15 @@ function Home() {
                             Save to Currently Reading
                           </button>
                         )}
-                        FutureButton={() => (
+                        PastButton={() => (
                           <button
-                            className="wantButton"
-                            value="future"
+                            className="historyButton"
+                            value="past"
                             onClick={(event) =>
                               saveBookToDB(event.target.value, book.id)
                             }
                           >
-                            Save to Want to Read
+                            Save to History
                           </button>
                         )}
                       />
