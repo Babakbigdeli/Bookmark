@@ -18,7 +18,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Connect to Mongo DB
-const uri = "mongodb+srv://bamboo:2040365@cluster0.ggmpj.mongodb.net/bookmark?retryWrites=true&w=majority";
+const uri = "mongodb+srv://bamboo:2040365@cluster0.ummds.mongodb.net/bookmark?retryWrites=true&w=majority";
 mongoose.connect(process.env.MONGODB_URI || uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
 
 
