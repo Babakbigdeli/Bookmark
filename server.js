@@ -26,10 +26,6 @@ mongoose
   .then(() => {
     console.log("Connected to Mongo Database");
 
-    app.get("*", (req, res) => {
-      res.sendFile(path.join(__dirname, "./client/build/index.html"));
-    });
-
     //Start the serverr
     app.listen(PORT, () => {
       console.log("Connected on port:" + PORT);

@@ -10,18 +10,10 @@ import "./style/UserPage.css";
 
 import { Segment, Grid } from "semantic-ui-react";
 
-const UserPage = ({ email }) => {
-  const [activeIndex, setActiveIndex] = useState(0);
+const UserPage = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
-
-  const handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const { activeIndex } = this.state;
-    const newIndex = activeIndex === index ? -1 : index;
-    setActiveIndex({ activeIndex: newIndex });
-  };
 
   useEffect(() => {
     API.getBooks().then((usersBooks) => {
@@ -36,7 +28,7 @@ const UserPage = ({ email }) => {
       setBooks(filteredBooks);
       setLoading(false);
     });
-  }, [setBooks]);
+  }, []);
 
   if (user === undefined) {
     return (
