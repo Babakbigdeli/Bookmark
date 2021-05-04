@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Container, Header, Accordion, Icon } from "semantic-ui-react";
 import API from "../utils/API";
 
-export default class WantToReadAccordion extends Component {
+export default class CurrentlyAccordion extends Component {
   constructor(props) {
     super(props);
 
@@ -10,16 +10,17 @@ export default class WantToReadAccordion extends Component {
   }
   state = { activeIndex: 0 };
 
+  handleClick = (e, titleProps) => {
+    const { index } = titleProps;
+    const { activeIndex } = this.state;
+    const newIndex = activeIndex === index ? -1 : index;
+
+    this.setState({ activeIndex: newIndex });
+  };
+
   refreshPage = () => {
     window.location.reload();
   };
-
-  handleDelete = (id) => {
-    API.deleteBook(id).then(() => {
-      this.refreshPage();
-    });
-  };
-
   handleUpdate = (id) => {
     const book = this.props.books.find((book) => book._id === id);
     console.log(book);
@@ -33,28 +34,25 @@ export default class WantToReadAccordion extends Component {
         number_of_pages: book.number_of_pages,
         language: book.language,
         subKey: book.subKey,
-        status: "present",
+        status: "past",
         image: book.image,
       },
       id
     ).then(() => this.refreshPage());
   };
 
-  handleClick = (e, titleProps) => {
-    const { index } = titleProps;
-    const { activeIndex } = this.state;
-    const newIndex = activeIndex === index ? -1 : index;
-
-    this.setState({ activeIndex: newIndex });
+  handleDelete = (id) => {
+    API.deleteBook(id).then(() => {
+      this.refreshPage();
+    });
   };
-
   render() {
     const { activeIndex } = this.state;
 
     return (
       <Container>
-        <Header as="h4" color="purple">
-          Want To Read
+        <Header as="h4" color="red">
+          Currently
         </Header>
         <Accordion fluid styled>
           {this.props.books.map((book, index) => {
@@ -65,17 +63,17 @@ export default class WantToReadAccordion extends Component {
                   index={index}
                   onClick={this.handleClick}
                 >
-                  <Icon name="dropdown" color="purple" />
+                  <Icon name="dropdown" color="red" />
                   {book.title}
                 </Accordion.Title>
                 <Accordion.Content active={activeIndex === index}>
-                  <p>{book.authors}</p>
-                  <p>{book.number_of_pages}</p>
+                  <p>Author: {book.authors}</p>
+                  <p>Number Of Pages: {book.number_of_pages}</p>
                   <button
                     class="ui secondary button"
                     onClick={() => this.handleUpdate(book._id)}
                   >
-                    Send to Currently
+                    Send to History
                   </button>
                   <button
                     class="ui secondary button"
