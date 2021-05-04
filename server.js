@@ -18,9 +18,10 @@ if (process.env.NODE_ENV === "production") {
 }
 
 //Connect to Mongo DB
-const uri = "mongodb+srv://bamboo:2040365@cluster0.ummds.mongodb.net/bookmark?retryWrites=true&w=majority";
-mongoose.connect(process.env.MONGODB_URI || uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
-
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhos/bookmark", {
+  useNewUrlParser: true,
+  useFindAndModify: false,
+});
 
     app.get("*", (req, res) => {
       res.sendFile(path.join(__dirname, "./client/build/index.html"));
