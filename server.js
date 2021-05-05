@@ -17,6 +17,7 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
+
 //Connect to Mongo DB
 mongoose
   .connect(process.env.MONGODB_URI || "mongodb://localhost:27017/bookmark", {
