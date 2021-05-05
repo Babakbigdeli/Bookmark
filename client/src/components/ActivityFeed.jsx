@@ -1,20 +1,5 @@
-import React, { state, componentDidMount} from "react";
+import React from "react";
 import { Feed } from "semantic-ui-react";
-import API from "../utils/API";
-
-// state = {
-//   books: [],
-// };
-
-// componentDidMount = () => {
-//   this.getBooks();
-// };
-
-// const bookActivity = () => {
-//   API.getBooks.then((response) => {
-//     console.log(response.data);
-//   });
-// };
 
 function ActivityFeed() {
   return (
@@ -24,7 +9,6 @@ function ActivityFeed() {
         date="Today"
         summary="You added The Girl On The Train to History."
       />
-      {/* <div>{bookActivity()}</div> */}
       <Feed.Event>
         <Feed.Label icon="pencil" />
         <Feed.Content
