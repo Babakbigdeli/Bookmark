@@ -29,7 +29,7 @@ const UserPage = () => {
       setBooks(filteredBooks);
       setLoading(false);
     });
-  }, []);
+  });
 
   if (user === undefined) {
     return (
