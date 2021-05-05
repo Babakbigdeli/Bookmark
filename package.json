@@ -9,7 +9,7 @@
     "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
     "client": "cd client && npm run start",
     "install": "cd client && npm install",
-    "build": "cd client && npm run build",
+    "build": "node build/build.js && mv _redirects dist",
     "heroku-postbuild": "npm run build"
   },
   "repository": {
