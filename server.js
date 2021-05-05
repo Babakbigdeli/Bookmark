@@ -7,15 +7,15 @@ const routes = require("./routes/api");
 const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 app.use(routes);
 
 //Assign PORT value
 const PORT = process.env.PORT || 3001;
 
 //Set up serving of static assets from build in client when in production
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
-}
 
 
 //Connect to Mongo DB
