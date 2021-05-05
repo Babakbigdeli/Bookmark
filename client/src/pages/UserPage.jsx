@@ -15,8 +15,8 @@ const UserPage = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
-
- 
+  
+  useEffect(() => {
     API.getBooks().then((usersBooks) => {
       console.log(usersBooks);
       let filteredBooks = [];
@@ -29,7 +29,7 @@ const UserPage = () => {
       setBooks(filteredBooks);
       setLoading(false);
     });
-  
+  }, [user]);
 
   if (user === undefined) {
     return (
