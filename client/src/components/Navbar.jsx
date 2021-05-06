@@ -14,7 +14,7 @@ function NavBar() {
             <Link to="/">Home</Link>
           </Nav.Link>
           <Nav.Link>
-            <Link to="/userpage">User Page</Link>{" "}
+            <Link to="/userpage">Lists</Link>{" "}
           </Nav.Link>
         </Nav>
         <Login />
