@@ -37,8 +37,6 @@ export default class CurrentlyAccordion extends Component {
       id
     ).then(() => {
       this.props.updateBookStatus(id);
-
-      // Update parents state to communicate the book has moved column
     });
   };
 

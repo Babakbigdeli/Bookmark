@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import { ThemeProvider } from "react-bootstrap";
 import { Container, Header, Accordion, Icon } from "semantic-ui-react";
 import API from "../utils/API";
 

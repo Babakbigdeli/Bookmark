@@ -1,5 +1,5 @@
 import React from "react";
-import {Card, Image } from "semantic-ui-react";
+import { Card, Image } from "semantic-ui-react";
 
 function SearchResultCardLoggedOut({
   image,
@@ -7,7 +7,6 @@ function SearchResultCardLoggedOut({
   authors,
   number_of_pages,
   language,
- 
 }) {
   return (
     <div>
@@ -22,7 +21,6 @@ function SearchResultCardLoggedOut({
           </Card.Description>
           <Card.Description>Language : {language}</Card.Description>
         </Card.Content>
-      
       </Card>
       <hr></hr>
     </div>
