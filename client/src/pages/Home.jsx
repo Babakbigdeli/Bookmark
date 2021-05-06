@@ -11,10 +11,13 @@ import API from "../utils/API";
 import "./style/Home.css";
 import SearchResultCardLoggedOut from "../components/SearchResultCardLoggedOut";
 
+import { useAlert } from "react-alert";
+
 function Home() {
   const [books, setBooks] = useState([]);
   const [q, setQ] = useState("");
   const { user } = useAuth0();
+  const alert = useAlert();
 
   const getBooks = () => {
     API.findBooks(q).then((response) => {
@@ -88,9 +91,10 @@ function Home() {
                           <button
                             className="wantButton"
                             value="future"
-                            onClick={(event) =>
-                              saveBookToDB(event.target.value, book.id)
-                            }
+                            onClick={(event) => {
+                              saveBookToDB(event.target.value, book.id);
+                              alert.show("Book Saved Successfully!");
+                            }}
                           >
                             Save to Want to Read
                           </button>
@@ -99,9 +103,10 @@ function Home() {
                           <button
                             className="currentlyButton"
                             value="present"
-                            onClick={(event) =>
-                              saveBookToDB(event.target.value, book.id)
-                            }
+                            onClick={(event) => {
+                              saveBookToDB(event.target.value, book.id);
+                              alert.show("Book Saved Successfully!");
+                            }}
                           >
                             Save to Currently Reading
                           </button>
@@ -110,9 +115,10 @@ function Home() {
                           <button
                             className="historyButton"
                             value="past"
-                            onClick={(event) =>
-                              saveBookToDB(event.target.value, book.id)
-                            }
+                            onClick={(event) => {
+                              saveBookToDB(event.target.value, book.id);
+                              alert.show("Book Saved Successfully!");
+                            }}
                           >
                             Save to History
                           </button>
