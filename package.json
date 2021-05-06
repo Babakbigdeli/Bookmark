@@ -2,7 +2,7 @@
   "name": "BookmarkApp",
   "version": "1.0.0",
   "description": "An online application to help you keep track of your reading",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "node server.js",
@@ -37,6 +37,7 @@
     "if-env": "^1.0.4",
     "mongodb": "^3.6.6",
     "mongoose": "^5.12.5",
+    "nodemon": "^2.0.7",
     "phoenix": "^1.5.8",
     "react-bootstrap": "^1.5.2",
     "react-icons": "^4.2.0",

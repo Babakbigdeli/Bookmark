@@ -12,6 +12,7 @@ router.use("/guardian", guardianRoutes);
 
 // In case no API routes are hit, send the React app
 router.use(function (req, res) {
+  console.log("Serving app because no other routes found");
   res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });
 module.exports = router;
