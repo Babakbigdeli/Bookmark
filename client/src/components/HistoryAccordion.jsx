@@ -11,12 +11,9 @@ export default class HistoryAccordion extends Component {
 
   state = { activeIndex: 0 };
 
-  refreshPage = () => {
-    window.location.reload();
-  };
   handleDelete = (id) => {
     API.deleteBook(id).then(() => {
-      this.refreshPage();
+      this.props.deleteBook(id);
     });
   };
 
