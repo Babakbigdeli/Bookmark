@@ -1,50 +1,59 @@
 # Bookmark
-An online application to help you keep track of your reading
 
-# With this application we wanted to create an app for book lovers to use to track there reading.
+### What it does:
 
-A reader can visit the app & sign up to become a member of a personal book tracking account.
+- Bookmark is a search application that allows users to search and save books.
 
-Then they can search for new books & add them to a category.
+- Users are able to create an account using their email and keep a digital track of their books.
 
-1) they can add books to history that they have already read.
-2) they can add books to currently reading
-3) they can add books to the want to read when they have finished their current book.
+- Users can find the latest information on books via the news feed.
 
-this will enable them to have a personal list of their own library of books.
+- Books can be moved to different section depending on their "read" status: Want To Read, Currently Reading & History.
 
-# Members of Bookmark can do the following as well
+## Technology Used
 
-1) use the news feed to look for new books coming on the market or currently on the market that they can then look for using the search bar.
+- React.js / Javascript
 
-2) we will have a reading progress bar to keep track of pages with a click add button to the bar, so they know the page they have got to.
+- Express
 
+- MongoDB / Atlas
 
-# applications used 
+- Mongoose
 
-Javascript
-React
-Node js
-Mongodb & Mongoose
-Auth0
-Google Books API
-Guardian API
-Semantic UI
-Axio
-Bootstrap
-Heroku
+- Node.js
 
-# links to Github accounts
+- Auth0
 
-https://github.com/omaymaahmad
+- Google Books API
 
-https://github.com/Babakbigdeli
+- Guardian API
 
-https://github.com/traceysaada
+- Semantic UI
 
-# Link to Github Repository
+- Bootstrap
 
-https://github.com/Babakbigdeli/BookmarkApp
+- Axios
 
-# Link to Deployed Application.
+- package.JSON
 
+- gitignore
+
+## Links
+
+- [GitHub repository](https://github.com/Babakbigdeli/BookmarkApp)
+
+- [Heroku Deployed Link](https://digital-bookmark.herokuapp.com/)
+
+- [Babak's GitHub](https://github.com/Babakbigdeli)
+
+- [Tracey's GitHub](https://github.com/traceysaada)
+
+- [Omayma's GitHub](https://github.com/omaymaahmad)
+
+## Screenshot of Application
+
+![Bookmark](./Assets/homepage.png)
+
+![Search](./Assets/save-book.png)
+
+![List](./Assets/list-page.png)
