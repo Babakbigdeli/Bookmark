@@ -18,9 +18,6 @@ export default class CurrentlyAccordion extends Component {
     this.setState({ activeIndex: newIndex });
   };
 
-  refreshPage = () => {
-    window.location.reload();
-  };
   handleUpdate = (id) => {
     const book = this.props.books.find((book) => book._id === id);
     console.log(book);
@@ -38,12 +35,16 @@ export default class CurrentlyAccordion extends Component {
         image: book.image,
       },
       id
-    ).then(() => this.refreshPage());
+    ).then(() => {
+      this.props.updateBookStatus(id);
+
+      // Update parents state to communicate the book has moved column
+    });
   };
 
   handleDelete = (id) => {
     API.deleteBook(id).then(() => {
-      this.refreshPage();
+      this.props.deleteBook(id);
     });
   };
   render() {

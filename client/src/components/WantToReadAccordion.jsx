@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { ThemeProvider } from "react-bootstrap";
 import { Container, Header, Accordion, Icon } from "semantic-ui-react";
 import API from "../utils/API";
 
@@ -10,13 +11,9 @@ export default class WantToReadAccordion extends Component {
   }
   state = { activeIndex: 0 };
 
-  refreshPage = () => {
-    window.location.reload();
-  };
-
   handleDelete = (id) => {
     API.deleteBook(id).then(() => {
-      this.refreshPage();
+      this.props.deleteBook(id);
     });
   };
 
@@ -37,7 +34,9 @@ export default class WantToReadAccordion extends Component {
         image: book.image,
       },
       id
-    ).then(() => this.refreshPage());
+    ).then(() => {
+      this.props.updateBookStatus(id);
+    });
   };
 
   handleClick = (e, titleProps) => {

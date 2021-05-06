@@ -15,7 +15,7 @@ const UserPage = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
   const { user } = useAuth0();
-  
+
   useEffect(() => {
     API.getBooks().then((usersBooks) => {
       console.log(usersBooks);
@@ -29,7 +29,28 @@ const UserPage = () => {
       setBooks(filteredBooks);
       setLoading(false);
     });
-  }, [user]);
+  }, []);
+
+  const updateBookStatus = (bookId, targetStatus) => {
+    const bookIndex = books.findIndex(({ _id }) => _id === bookId);
+    console.log("bookindex: ", bookIndex);
+
+    const [book] = books.splice(bookIndex, 1);
+    console.log("book: ", book);
+
+    const updatedBook = { ...book, status: targetStatus };
+    console.log("updated book: ", updatedBook);
+
+    setBooks([...books, updatedBook]);
+  };
+
+  const deleteBook = (bookId) => {
+    const bookIndex = books.findIndex(({ _id }) => _id === bookId);
+
+    books.splice(bookIndex, 1);
+
+    setBooks([...books]);
+  };
 
   if (user === undefined) {
     return (
@@ -45,16 +66,25 @@ const UserPage = () => {
         <Segment>
           <Grid columns={4} relaxed="very">
             <Grid.Column>
-              <Want books={books.filter(({ status }) => status === "future")} />
+              <Want
+                books={books.filter(({ status }) => status === "future")}
+                updateBookStatus={(bookId) =>
+                  updateBookStatus(bookId, "present")
+                }
+                deleteBook={deleteBook}
+              />
             </Grid.Column>
             <Grid.Column>
               <Currently
                 books={books.filter(({ status }) => status === "present")}
+                updateBookStatus={(bookId) => updateBookStatus(bookId, "past")}
+                deleteBook={deleteBook}
               />
             </Grid.Column>
             <Grid.Column>
               <History
                 books={books.filter(({ status }) => status === "past")}
+                deleteBook={deleteBook}
               />
             </Grid.Column>
             <Grid.Column>
