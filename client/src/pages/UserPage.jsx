@@ -33,13 +33,10 @@ const UserPage = () => {
 
   const updateBookStatus = (bookId, targetStatus) => {
     const bookIndex = books.findIndex(({ _id }) => _id === bookId);
-    console.log("bookindex: ", bookIndex);
 
     const [book] = books.splice(bookIndex, 1);
-    console.log("book: ", book);
 
     const updatedBook = { ...book, status: targetStatus };
-    console.log("updated book: ", updatedBook);
 
     setBooks([...books, updatedBook]);
   };
