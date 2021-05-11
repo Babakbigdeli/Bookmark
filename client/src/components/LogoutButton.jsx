@@ -6,11 +6,15 @@ const LogoutButton = () => {
   return (
     isAuthenticated && (
       <div className="loginButton">
-        <button className="loginButton" onClick={() => logout()}>
+        <button
+          className="loginButton"
+          onClick={() =>
+            logout({ returnTo: "https://digital-bookmark.herokuapp.com/" })
+          }
+        >
           {" "}
           Log Out
         </button>
-        
       </div>
     )
   );
